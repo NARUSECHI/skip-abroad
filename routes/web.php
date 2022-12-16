@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
+
 
 
 /*
@@ -22,4 +24,8 @@ Auth::routes();
 Route::group(['middleware'=>'auth'],function(){
     //Home
     Route::get('/',[HomeController::class,'index'])->name('index');
+
+    //Post
+    Route::get('posts/create',[PostController::class,'index'])->name('posts.create');
+    Route::post('posts/store',[PostController::class,'store'])->name('posts.store');
 });
