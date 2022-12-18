@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfileController;
 
 
 
@@ -26,6 +27,10 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('/',[HomeController::class,'index'])->name('index');
 
     //Post
-    Route::get('posts/create',[PostController::class,'index'])->name('posts.create');
-    Route::post('posts/store',[PostController::class,'store'])->name('posts.store');
+    Route::get('/posts/create',[PostController::class,'index'])->name('posts.create');
+    Route::post('/posts/store',[PostController::class,'store'])->name('posts.store');
+    Route::get('/posts/{id}/show',[PostController::class,'show'])->name('posts.show');
+    
+    //Profile
+    Route::get('/profile/{id}',[ProfileController::class,'index'])->name('profile');
 });

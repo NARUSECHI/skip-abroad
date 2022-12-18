@@ -39,5 +39,11 @@ class PostController extends Controller
         $request->image->storeAs(self::LOCAL_STORAGE_FOLDER,$image_name);
         return $image_name;
     }
+
+    public function show($post_id)
+    {
+        $post = $this->post->findOrFail($post_id);
+        return view('posts.show')->with('post',$post);
+    }
     
 }

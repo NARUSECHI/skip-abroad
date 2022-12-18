@@ -52,7 +52,7 @@
                             <label for="country" class="col-md-4 col-form-label text-md-end">{{ __('滞在国') }}</label>
 
                             <div class="col-md-6">
-                                <select name="country" id="country" class="form-select">
+                                <select name="country" id="country" class="form-select" value="{{old('avatar_name')}}">
                                     <option value="" hidden>--</option>
                                     <option value="Australia">Australia</option>
                                     <option value="Canada">Canada</option>
@@ -67,18 +67,18 @@
                             @enderror
                         </div>
 
-                        <div class="row mb-5">
+                        <div class="row mb-3">
                             <label for="stay_year" class="col-md-4 col-form-label text-md-end">{{ __('滞在期間') }}</label>
 
                             <div class="col-md-2">
-                                <input id="stay_year" type="number" class="form-control" name="stay_year" required>
+                                <input id="stay_year" type="number" class="form-control" name="stay_year" required value="{{old('avatar_name')}}">
                             </div>
                             <div class="col-md-1 my-auto">
                                 <span>年</span>
                             </div>
 
                             <div class="col-md-2">
-                                <input id="stay_month" type="number" class="form-control" name="stay_month" required>
+                                <input id="stay_month" type="number" class="form-control" name="stay_month" required value="{{old('avatar_name')}}">
                             </div>
 
                             <div class="col-md-1 my-auto">
@@ -99,6 +99,20 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-5">
+                            <label for="avatar_name" class="col-md-4 col-form-label text-md-end">{{ __('アバター名') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="avatar_name" type="text" class="form-control" name="avatar_name" value="{{old('avatar_name')}}" required>
+
+                                @error('avatar_name')
+                                    <span class="invalid-feedback" role="alert" style="display:inline;">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 

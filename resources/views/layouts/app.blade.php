@@ -63,7 +63,7 @@
                                 </button>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="account-dropdown">
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{route('profile',Auth::user()->id)}}">
                                         プロフィール
                                     </a>
                                     <a class="dropdown-item" href="{{ route('posts.create')}}">

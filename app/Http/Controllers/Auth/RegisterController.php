@@ -55,6 +55,7 @@ class RegisterController extends Controller
             'country' => ['required', 'string'],
             'stay_year' => ['required', 'numeric','between:0,3'],
             'stay_month' => ['required', 'numeric','between:0,11'],
+            'avatar_name'=>['required','string','max:15']
         ]);
     }
 
@@ -71,7 +72,8 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'country' => $data['country'],
             'stay_year' => $data['stay_year'],
-            'stay_month' => $data['stay_month']
+            'stay_month' => $data['stay_month'],
+            'avatar_name' => $data['avatar_name']
         ]);
     }
 }

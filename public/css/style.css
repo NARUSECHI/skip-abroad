@@ -2,3 +2,19 @@
 .icon-sm{
     font-size:2rem;
 }
+
+.icon-lg{
+    font-size:10rem;
+}
+
+.img-sm{
+    height:300px;
+    width:300px;
+    object-fit:cover;
+}
+
+.img-lg{
+    height:500px;
+    width:500px;
+    object-fit:cover;
+}

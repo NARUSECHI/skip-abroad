@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('country');
             $table->string('stay_year');
             $table->string('stay_month');
-            $table->string('avatar_name')->nullable();
+            $table->string('avatar_name');
             $table->string('avatar_image')->nullable();
             $table->string('avatar_introduction')->nullable();
             $table->string('age')->nullable();
