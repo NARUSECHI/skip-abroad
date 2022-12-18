@@ -21,8 +21,8 @@
                                         </button>
 
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMwnuLink">
-                                            <li><a href="#" class="dropdown-item">Edit</a></li>
-                                            <li><a href="#" class="dropdown-item text-danger">Edit</a></li>
+                                            {{-- <li><a href="{{ route('posts.edit',$post->id) }}" class="dropdown-item">Edit</a></li> --}}
+                                            <li><a href="#" class="dropdown-item text-danger">Delete</a></li>
                                         </ul>
                                     </div>
                                 </div>

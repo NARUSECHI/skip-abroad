@@ -13,7 +13,9 @@
     <div class="mt-5">
         <hr>
         @forelse ($user->posts as $post)
+            <a href="{{route('posts.show',$post->id)}}">
                 <img src="{{ asset('storage/images/'.$post->image)}}" alt="{{$post->image}}">
+            </a>
         @empty
         <div class="text-center mt-5">
             <h1 class="text-muted h3">まだ投稿はありません</h1> 

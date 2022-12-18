@@ -30,6 +30,9 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('/posts/create',[PostController::class,'index'])->name('posts.create');
     Route::post('/posts/store',[PostController::class,'store'])->name('posts.store');
     Route::get('/posts/{id}/show',[PostController::class,'show'])->name('posts.show');
+    Route::get('/posts/{id}/edit',[PostController::class,'edit'])->name('posts.edit');
+    Route::patch('/posts/{id}/update',[PostController::class,'update'])->name('posts.update');
+
     
     //Profile
     Route::get('/profile/{id}',[ProfileController::class,'index'])->name('profile');
