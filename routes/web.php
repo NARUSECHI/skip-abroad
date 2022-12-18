@@ -32,6 +32,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('/posts/{id}/show',[PostController::class,'show'])->name('posts.show');
     Route::get('/posts/{id}/edit',[PostController::class,'edit'])->name('posts.edit');
     Route::patch('/posts/{id}/update',[PostController::class,'update'])->name('posts.update');
+    Route::delete('/posts/{id}/destroy',[PostController::class,'destroy'])->name('posts.destroy');
 
     
     //Profile

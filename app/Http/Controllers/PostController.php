@@ -91,5 +91,13 @@ class PostController extends Controller
         }
 
     }
+
+    public function destroy($id)
+    {
+        $post = $this->post->destroy($id);
+        return redirect()->route('index');
+    }
+
+
     
 }

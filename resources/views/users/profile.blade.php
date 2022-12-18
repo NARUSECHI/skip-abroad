@@ -14,7 +14,7 @@
         <hr>
         @forelse ($user->posts as $post)
             <a href="{{route('posts.show',$post->id)}}">
-                <img src="{{ asset('storage/images/'.$post->image)}}" alt="{{$post->image}}">
+                <img src="{{ asset('storage/images/'.$post->image)}}" alt="{{$post->image}}" class="img-sm">
             </a>
         @empty
         <div class="text-center mt-5">

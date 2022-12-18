@@ -20,11 +20,18 @@
                                             <i class="fa-solid fa-ellipsis"></i>
                                         </button>
 
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMwnuLink">
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                             {{-- <li><a href="{{ route('posts.edit',$post->id) }}" class="dropdown-item">Edit</a></li> --}}
-                                            <li><a href="#" class="dropdown-item text-danger">Delete</a></li>
+                                            <li>
+                                                <button class="dropdown-item text-danger" data-bs-toggle="modal" data-bs-target="#staticModal-{{ $post->id }}">
+                                                    Delete
+                                                </button>
+                                            </li>
                                         </ul>
+                                        {{-- Add Modal --}}
+                                        @include('posts.modal.delete')
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>
