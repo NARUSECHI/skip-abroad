@@ -16,7 +16,7 @@
                                 </div>
                                 <div class="col-auto ms-auto">
                                     <div class="dropdown me-auto">
-                                        <button type="button" class="dropdown-toggle" data-bs-toggle="dropdown" id="dropdownMenuLink">
+                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="dropdown" id="dropdownMenuLink">
                                             <i class="fa-solid fa-ellipsis"></i>
                                         </button>
 

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -36,5 +37,7 @@ Route::group(['middleware'=>'auth'],function(){
 
     
     //Profile
-    Route::get('/profile/{id}',[ProfileController::class,'index'])->name('profile');
+    Route::get('/profile/{id}',[ProfileController::class,'index'])->name('profile.index');
+    Route::get('/profile/{id}/edit',[ProfileController::class,'edit'])->name('profile.edit');
+    Route::post('/profile/update',[ProfileController::class,'update'])->name('profile.update');
 });

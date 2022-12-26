@@ -7,8 +7,20 @@
     @if ($user->avatar_image)
         <img src="{{asset('storage/avatars/'.$user->avatar_image)}}" alt="{{ $user->avatar_image}}" class="rounded icon-lg">
     @else
-        <i class="fa-regular fa-face-smile text-dark icon-lg text-center" class="rounded icon-lg"></i>
+        <i class="fa-regular fa-face-smile text-dark icon-lg"></i>
     @endif
+    <p>{{$user->country}}</p>
+    <p>
+    @if ($user->gender===1)
+        男性
+    @else
+        女性
+    @endif
+    </p>
+    <p>応援している人</p>
+    <p>応援してくれている人</p>
+    <a href="{{ route('profile.edit',$user->id) }}">プロフィールを編集する</a>
+    
 
     <div class="mt-5">
         <hr>

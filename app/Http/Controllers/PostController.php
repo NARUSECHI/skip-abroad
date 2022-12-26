@@ -94,10 +94,10 @@ class PostController extends Controller
 
     public function destroy($id)
     {
-        $post = $this->post->destroy($id);
+        $post = $this->post->findOrFail($id);
+        $this->deleteImage($post->image);
+        $post->destroy($id);
         return redirect()->route('index');
     }
-
-
     
 }

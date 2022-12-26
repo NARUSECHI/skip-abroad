@@ -56,26 +56,26 @@
                             <li class="nav-item dropdown">
                                 <button id="account-dropdown" class="btn shadow-none nav-link" data-bs-toggle="dropdown">
                                     @if (Auth::user()->avatar_image)
-                                        <img src="" alt="">                                        
+                                        <img src="{{ asset('storage/avatars/'. Auth::user()->avatar_image)}}" alt="{{ Auth::user()->avatar_image}}" class="rounded-circle img-xs">                                        
                                     @else
                                         <i class="fa-regular fa-face-smile text-dark icon-sm"></i>
                                     @endif
                                 </button>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="account-dropdown">
-                                    <a class="dropdown-item" href="{{route('profile',Auth::user()->id)}}">
-                                        プロフィール
+                                    <a class="dropdown-item" href="{{route('profile.index',Auth::user()->id)}}">
+                                        My Profile
                                     </a>
                                     <a class="dropdown-item" href="{{ route('posts.create')}}">
-                                        新規投稿
+                                        New Post
                                     </a>
                                     <a class="dropdown-item" href="#">
-                                        お問い合わせ
+                                        Contact us
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('ログアウト') }}
+                                        {{ __('Logout') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
