@@ -6,15 +6,17 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Comment;
 
 class PostController extends Controller
 {
     const LOCAL_STORAGE_FOLDER ='public/images';
     private $post;
 
-    public function __construct(Post $post)
+    public function __construct(Post $post,Comment $comment)
     {
         $this->post = $post;
+        $this->comment = $comment;
     }
 
     public function index()
@@ -50,7 +52,8 @@ class PostController extends Controller
     public function show($post_id)
     {
         $post = $this->post->findOrFail($post_id);
-        return view('posts.show')->with('post',$post);
+        $all_comments = $this->comment->latest()->get();
+        return view('posts.show')->with('post',$post)->with('all_comments',$all_comments);
     }
     //人気投稿の画像をすり替えられる可能性
     // public function edit($id)
@@ -87,7 +90,7 @@ class PostController extends Controller
 
         if(Storage::disk('local')->exists($image_path))
         {
-            Storage::disk('local')->delete('image_path');
+            Storage::disk('local')->delete($image_path);
         }
 
     }

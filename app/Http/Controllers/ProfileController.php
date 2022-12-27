@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 
+
 class ProfileController extends Controller
 {
     const LOCAL_STORAGE_FOLDER ='public/avatars';
