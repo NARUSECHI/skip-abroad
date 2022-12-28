@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-6 ms-3">
                 @if ($user->avatar_image)
-                    <img src="{{asset('storage/avatars/'.$user->avatar_image)}}" alt="{{ $user->avatar_image}}" class="rounded-circle img-sm">
+                    <img src="{{asset('storage/avatars/'.$user->avatar_image)}}" alt="{{ $user->avatar_image}}" class="rounded-circle img-lg">
                 @else
                     <i class="fa-regular fa-face-smile text-dark icon-lg rounded-circle"></i>
                 @endif
