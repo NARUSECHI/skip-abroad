@@ -59,6 +59,17 @@
                                                 <i class="fa-regular fa-face-smile text-dark icon-sm"></i>
                                             @endif
                                         </div>
+                                        <div class="col">
+                                            {{$comment->user->avatar_name}}
+                                        </div>
+                                        <div class="col-auto ms-auto">
+                                            <form action="{{ route('comment.destroy',$comment->id) }}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+
+                                                <button type="submit" class="btn bg-transparent text-danger">Delete</button>
+                                            </form>
+                                        </div>
                                     </div>
                                     <div class="row">
                                         {{$comment->body}}

@@ -44,4 +44,5 @@ Route::group(['middleware'=>'auth'],function(){
 
     //Comment
     Route::post('/comment/{id}/store',[CommentController::class,'store'])->name('comment.store');
+    Route::delete('/comment/{id}/delete',[CommentController::class,'destroy'])->name('comment.destroy');
 });
