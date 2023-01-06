@@ -12,6 +12,7 @@ class PostController extends Controller
 {
     const LOCAL_STORAGE_FOLDER ='public/images';
     private $post;
+    private $comment;
 
     public function __construct(Post $post,Comment $comment)
     {

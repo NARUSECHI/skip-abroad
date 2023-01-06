@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\LikeController;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -45,4 +46,8 @@ Route::group(['middleware'=>'auth'],function(){
     //Comment
     Route::post('/comment/{id}/store',[CommentController::class,'store'])->name('comment.store');
     Route::delete('/comment/{id}/delete',[CommentController::class,'destroy'])->name('comment.destroy');
+
+    //Like
+    Route::post('/like/{id}',[LikeController::class,'store'])->name('like.store');
+    Route::delete('/like/{id}/destroy',[LikeController::class,'destroy'])->name('like.destroy');
 });

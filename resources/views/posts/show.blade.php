@@ -16,11 +16,31 @@
                             <i class="fa-regular fa-face-smile text-dark icon-sm"></i>
                         @endif
                     </div>
-                    <div class="col-auto">
+                    <div class="col">
                         <span class="ms-2 align-middle">{{$post->user->avatar_name}}</span>
                     </div>
                     <div class="col-auto ms-auto">
-                        <i class="fa-regular fa-heart fs-3"></i> <span class="fs-5">Like</span>
+                        @if ($post->isLike())
+                            <form action="{{ route('like.destroy',$post->id) }}" method="post">
+                                @csrf
+                                @method('DELETE')
+
+                            <button type="submit" class="btn bg-transparent text-danger">
+                                <i class="fa-solid fa-heart fs-3"></i><span class="fs-5">Like</span>
+                            </button>
+                        @else
+                            <form action="{{ route('like.store',$post->id)}}" method="post">
+                                @csrf
+
+                                <button type="submit" class="btn bg-transparent text-danger">
+                                     <i class="fa-regular fa-heart fs-3"></i> <span class="fs-5">Like</span>
+                                </button>
+                            </form>
+                                   
+                        @endif
+                            
+                        {{$post->likes->count()}}
+                        </form>
                     </div>
                     <div class="col-auto ms-auto">
                         <button class="dropdown-item text-danger" data-bs-toggle="modal" data-bs-target="#staticModal-{{ $post->id }}">
