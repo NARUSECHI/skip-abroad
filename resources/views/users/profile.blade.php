@@ -28,7 +28,23 @@
                         <h5 class="my-2"><span class="text-muted">Follow: </span></h5>
                         <h5 class="my-2"><span class="text-muted">Follower: </span></h5>
                     </div>
-                    <a href="{{ route('profile.edit',$user->id) }}" class="btn btn-success mt-5">Edit profile</a>
+                    @if ($user->id === Auth::user()->id)
+                        <a href="{{ route('profile.edit',$user->id) }}" class="btn btn-success mt-5">Edit profile</a>
+                    @else
+                        @if ($user->isFollowed())
+                            <form action="{{ route('follow.destroy',$user->id )}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-secondary">UnFollow</button>
+                            </form>  
+                        @else
+                            <form action="{{ route('follow.store',$user->id) }}" method="post">
+                                @csrf
+                                <button type="submit" class="btn btn-primary">Follow</button>
+                            </form>
+                        @endif
+                    @endif
+                   
                 </div>
             </div>
         </div>

@@ -9,16 +9,20 @@
             <img src="{{asset('storage/images/'.$post->image)}}" alt="{{$post->image}}" class="card-img-top img-lg mx-auto mt-2">
             <div class="card-body mx-2">
                 <div class="row mt-1 gx-2">
-                    <div class="col-auto">
-                        @if ($post->user->avatar_image)
-                            <img src="{{ asset('storage/avatars/'.$post->user->avatar_image)}}" alt="{{ $post->user->avatar_image}}" class="img-xs rounded-circle">                                        
-                        @else
-                            <i class="fa-regular fa-face-smile text-dark icon-sm"></i>
-                        @endif
-                    </div>
-                    <div class="col">
-                        <span class="ms-2 align-middle">{{$post->user->avatar_name}}</span>
-                    </div>
+                    <a href="{{ route('profile.index',$post->user->id )}}">
+                        <div class="col-auto">
+                            @if ($post->user->avatar_image)
+                                <img src="{{ asset('storage/avatars/'.$post->user->avatar_image)}}" alt="{{ $post->user->avatar_image}}" class="img-xs rounded-circle">                                        
+                            @else
+                                <i class="fa-regular fa-face-smile text-dark icon-sm"></i>
+                            @endif
+                        </div>
+                    </a>
+                    <a href="{{ route('profile.index',$post->user->id )}}" class="text-decoration-none text-dark">
+                        <div class="col">
+                            <span class="ms-2 align-middle">{{$post->user->avatar_name}}</span>
+                        </div>
+                    </a>
                     <div class="col-auto ms-auto">
                         @if ($post->isLike())
                             <form action="{{ route('like.destroy',$post->id) }}" method="post">

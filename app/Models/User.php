@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Post;
 
@@ -49,5 +50,15 @@ class User extends Authenticatable
     public function posts()
     {
         return $this->hasMany(Post::class)->latest();
+    }
+
+    public function followers()
+    {
+        return $this->hasMany(Follow::class,'follower_id');
+    }
+
+    public function isFollowed()
+    {
+        return $this->followers()->where('following_id',Auth::user()->id)->exists();
     }
 }
