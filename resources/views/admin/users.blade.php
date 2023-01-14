@@ -1,0 +1,55 @@
+@extends('layouts.app')
+
+@section('title','Admin Users')
+    
+@section('content')
+<div class="d-flex justify-content-center mt-3">
+    <div class="col-8">
+        <h1>All Users</h1>
+        <table class="table table-sm align-middle bg-white border mt-3">
+            <thead class="table-warning border border-0 border-bottom border-1 border-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Avatar_Image</th>
+                    <th>AvaterName</th>
+                    <th>Email</th>
+                    <th>Role_ID</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($all_users as $user)
+                    <tr>
+                        <td>{{$user->id}}</td>
+                        <td>
+                            @if ($user->avatar_image)
+                                <img src="{{ asset('storage/avatars/'.$user->avatar_image) }}" alt="{{$user->avatar_image}}" class="img-mid">
+                            @else
+                                <i class="fa-regular fa-face-smile text-dark icon-mid"></i>
+                            @endif
+                        </td>
+                        <td>{{$user->avatar_name}}</td>
+                        <td>{{$user->email}}</td>
+                        <td>{{$user->role_id}}</td>
+                        <td>
+                            <form action="#" method="post">
+                                @csrf
+                                @method('DELETE')
+
+                                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" >
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                                
+                                {{-- Include Modal --}}
+                            </form>
+                        </td>
+                    </tr>    
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+</div>
+
+   
+    
+@endsection

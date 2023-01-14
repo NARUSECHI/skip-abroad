@@ -3,6 +3,10 @@
     font-size:2rem;
 }
 
+.icon-mid{
+    font-size:5rem;
+}
+
 .icon-lg{
     font-size:10rem;
 }
@@ -10,6 +14,12 @@
 .img-xs{
     height:2.5rem;
     width:2.5rem;
+    object-fit:cover;
+}
+
+.img-mid{
+    height:5rem;
+    width:5rem;
     object-fit:cover;
 }
 

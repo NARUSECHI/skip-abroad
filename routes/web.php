@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\FollowController;
+use App\Http\Controllers\Admin\UsersController;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -55,4 +56,8 @@ Route::group(['middleware'=>'auth'],function(){
     //Follow
     Route::post('/follow/{id}',[FollowController::class,'store'])->name('follow.store');
     Route::delete('/follow/{id}/destroy',[FollowController::class,'destroy'])->name('follow.destroy');
+
+    Route::group(['prefix'=>'admin','as'=>'admin.'],function(){
+        Route::get('/users',[UsersController::class,'index'])->name('users');
+    });
 });
