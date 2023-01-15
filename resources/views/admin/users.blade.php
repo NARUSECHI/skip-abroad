@@ -3,10 +3,9 @@
 @section('title','Admin Users')
     
 @section('content')
-<div class="d-flex justify-content-center mt-3">
     <div class="col-8">
         <h1>All Users</h1>
-        <table class="table table-sm align-middle bg-white border mt-3">
+        <table class="table table-sm align-middle bg-white border">
             <thead class="table-warning border border-0 border-bottom border-1 border-dark">
                 <tr>
                     <th>ID</th>
@@ -48,7 +47,6 @@
             </tbody>
         </table>
     </div>
-</div>
 
    
     

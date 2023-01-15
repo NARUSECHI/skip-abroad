@@ -95,7 +95,18 @@
 
         <main class="py-4">
             <div class="container mt-3">
-                @yield('content')
+                    <div class="row">
+                        <div class="col-3 mt-5">
+                            @if (request()->is('admin/*'))
+                                <div class="list-group">
+                                    <a href="{{ route('admin.users')}}" class="list-group-item {{ request()->is('admin/users')?'active':'' }}">Users</a>
+                                    <a href="{{ route('admin.posts')}}" class="list-group-item {{ request()->is('admin/posts')?'active':'' }}">Posts</a>
+                                    <a href="#" class="list-group-item {{ request()->is('#')?'active':'' }}"></a>
+                                </div>
+                        </div>
+                        @endif
+                        @yield('content')            
+                    </div>
             </div>
         </main>
     </div>

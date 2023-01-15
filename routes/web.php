@@ -8,6 +8,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\FollowController;
 use App\Http\Controllers\Admin\UsersController;
+use App\Http\Controllers\Admin\PostsController;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -59,5 +60,6 @@ Route::group(['middleware'=>'auth'],function(){
 
     Route::group(['prefix'=>'admin','as'=>'admin.'],function(){
         Route::get('/users',[UsersController::class,'index'])->name('users');
+        Route::get('/posts',[PostsController::class,'index'])->name('posts');
     });
 });
