@@ -31,16 +31,17 @@
                         <td>{{$user->email}}</td>
                         <td>{{$user->role_id}}</td>
                         <td>
-                            <form action="#" method="post">
-                                @csrf
-                                @method('DELETE')
-
-                                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" >
-                                    <i class="fa-solid fa-trash-can"></i>
+                            @if ($user->trashed())
+                                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#activate-user-{{$user->id}}">
+                                    <i class="fa-solid fa-user-xmark"></i>
                                 </button>
-                                
-                                {{-- Include Modal --}}
-                            </form>
+                                @include('admin.modal.activate')
+                            @else
+                                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#deactivate-user-{{$user->id}}">
+                                    <i class="fa-solid fa-user-plus"></i>
+                                </button>
+                                @include('admin.modal.deactivate')
+                            @endif    
                         </td>
                     </tr>    
                 @endforeach
