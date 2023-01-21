@@ -18,7 +18,7 @@ class UsersController extends Controller
     public function index()
     {
         $all_users = $this->user->withTrashed()->latest()->get();
-        return view('admin.users')->with('all_users',$all_users);
+        return view('admin.users.users')->with('all_users',$all_users);
     }
 
     public function deactivate($id)

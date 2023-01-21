@@ -13,7 +13,7 @@
                     <th>AvaterName</th>
                     <th>Email</th>
                     <th>Role_ID</th>
-                    <th>Delete</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -40,7 +40,7 @@
                                 <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#deactivate-user-{{$user->id}}">
                                     <i class="fa-solid fa-user-plus"></i>
                                 </button>
-                                @include('admin.modal.deactivate')
+                                @include('admin.users.modal.deactivate')
                             @endif    
                         </td>
                     </tr>    

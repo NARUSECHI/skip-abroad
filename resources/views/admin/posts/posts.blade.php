@@ -13,7 +13,7 @@
                     <th>TITLE</th>
                     <th>DESCRIPTION</th>
                     <th>USER_ID</th>
-                    <th>Delete</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -25,16 +25,16 @@
                         <td><p class="text-truncate">{{$post->description}}</p></td>
                         <td>{{$post->user->id}}</td>
                         <td>
-                            <form action="#" method="post">
-                                @csrf
-                                @method('DELETE')
-
-                                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" >
-                                    <i class="fa-solid fa-trash-can"></i>
+                            @if ($post->trashed())
+                                <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#unhide-post-{{ $post->id }}">
+                                    <i class="fa-solid fa-eye-slash"></i> Hide
                                 </button>
-                                
-                                {{-- Include Modal --}}
-                            </form>
+                            @else
+                                 <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#hide-post-{{ $post->id }}">
+                                    <i class="fa-solid fa-eye"></i></i> Unhide
+                                </button>
+                            @endif
+                                @include('admin.posts.modal.status')
                         </td>
                     </tr>
                 @endforeach

@@ -59,9 +59,13 @@ Route::group(['middleware'=>'auth'],function(){
     Route::delete('/follow/{id}/destroy',[FollowController::class,'destroy'])->name('follow.destroy');
 
     Route::group(['prefix'=>'admin','as'=>'admin.'],function(){
+        
         Route::get('/users',[UsersController::class,'index'])->name('users');
-        Route::get('/posts',[PostsController::class,'index'])->name('posts');
         Route::delete('/users/{id}/deactivate',[UsersController::class,'deactivate'])->name('users.deactivate');
         Route::patch('/users/{id}/activate',[UsersController::class,'activate'])->name('users.activate');
+
+        Route::get('/posts',[PostsController::class,'index'])->name('posts');
+        Route::delete('posts/{id}/hide',[PostsController::class,'hide'])->name('posts.hide');
+        Route::patch('posts/{id}/unhide',[PostsController::class,'unhide'])->name('posts.unhide');
     });
 });

@@ -100,7 +100,7 @@ class PostController extends Controller
     {
         $post = $this->post->findOrFail($id);
         $this->deleteImage($post->image);
-        $post->destroy($id);
+        $post->forcedelete();
         return redirect()->route('index');
     }
     

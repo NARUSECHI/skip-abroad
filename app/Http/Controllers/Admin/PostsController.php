@@ -17,8 +17,20 @@ class PostsController extends Controller
 
     public function index()
     {
-        $all_posts = $this->post->latest()->get();
-        return view('admin.posts')->with('all_posts',$all_posts);
+        $all_posts = $this->post->withTrashed()->latest()->get();
+        return view('admin.posts.posts')->with('all_posts',$all_posts);
+    }
+
+    public function hide($id)
+    {
+        $this->post->findOrFail($id)->delete();
+        return redirect()->back();
+    }
+
+    public function unhide($id)
+    {
+        $this->post->onlyTrashed()->findOrFail($id)->restore();
+        return redirect()->back();
     }
 
 
