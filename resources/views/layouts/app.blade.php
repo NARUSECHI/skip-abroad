@@ -63,10 +63,12 @@
                                 </button>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="account-dropdown">
-                                    <a class="dropdown-item" href="{{route('admin.users')}}">
-                                        Admin
-                                    </a>
+                                    @can('admin')
+                                        <a class="dropdown-item" href="{{route('admin.users')}}">
+                                            Admin
+                                        </a>
                                     <hr class="dropdown-divider">
+                                    @endcan
                                     <a class="dropdown-item" href="{{route('profile.index',Auth::user()->id)}}">
                                         My Profile
                                     </a>

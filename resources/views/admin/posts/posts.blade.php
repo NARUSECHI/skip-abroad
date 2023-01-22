@@ -5,7 +5,7 @@
 @section('content')
     <div class="col-8">
         <h1>All Posts</h1>
-        <table class="table table-sm align-middle text-align-center border bg-white">
+        <table class="table table-sm align-middle text-align-center border bg-white text-center">
             <thead class="table-success border border-0 border-bottom border-dark">
                 <tr>
                     <th>ID</th>

@@ -5,7 +5,7 @@
 @section('content')
     <div class="col-8">
         <h1>All Users</h1>
-        <table class="table table-sm align-middle bg-white border">
+        <table class="table table-sm align-middle bg-white border text-center">
             <thead class="table-warning border border-0 border-bottom border-1 border-dark">
                 <tr>
                     <th>ID</th>
@@ -35,7 +35,7 @@
                                 <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#activate-user-{{$user->id}}">
                                     <i class="fa-solid fa-user-xmark"></i>
                                 </button>
-                                @include('admin.modal.activate')
+                                @include('admin.users.modal.activate')
                             @else
                                 <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#deactivate-user-{{$user->id}}">
                                     <i class="fa-solid fa-user-plus"></i>
