@@ -31,4 +31,10 @@ class HomeController extends Controller
         $all_posts = $this->post->get();
         return view('home')->with('all_posts',$all_posts);
     }
+
+    public function search(Request $request)
+    {
+        $search_posts = $this->post->where('title','Like','%'.$request->search.'%')->latest()->get();
+        return view('posts.search')->with('search',$request->search)->with('search_posts',$search_posts);
+    }
 }

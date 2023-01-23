@@ -31,6 +31,7 @@ Auth::routes();
 Route::group(['middleware'=>'auth'],function(){
     //Home
     Route::get('/',[HomeController::class,'index'])->name('index');
+    Route::post('/search',[HomeController::class,'search'])->name('search');
 
     //Post
     Route::get('/posts/create',[PostController::class,'index'])->name('posts.create');

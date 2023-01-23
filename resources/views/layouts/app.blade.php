@@ -36,6 +36,22 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                     </ul>
+                    <div class="col-5">
+                        <div class="m-auto">          
+                                <form action="{{ route('search') }}" method="post">
+                                    @csrf
+                                    <div class="row align-center">        
+                                        <div class="col">
+                                            <input type="search" name="search" id="search" class="form-control">
+                                        </div>
+                                        <div class="col-auto">
+                                            <button id="submit" class="btn btn-primary">Search</button>
+                                        </div>
+                                    </div>
+                                </form>                            
+                        </div>
+                    </div>
+                    
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
